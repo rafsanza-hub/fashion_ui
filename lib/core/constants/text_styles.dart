@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-
   // Title styles
   static const TextStyle titleUppercaseLarge = TextStyle(
     color: Color(0xFF202224),

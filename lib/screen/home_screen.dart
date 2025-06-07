@@ -1,10 +1,12 @@
 import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
+import 'package:fashion_ui/screen/product_detail_screen.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -574,36 +576,39 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildProductCard(
       BuildContext context, String title, double price, String image) {
-    return Column(
-      children: [
-        Image.asset(
-          image,
-          width: 165.w,
-          height: 200.h,
-          fit: BoxFit.cover,
-        ),
-        SizedBox(height: 4.h),
-        Text(
-          title,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          style: AppTextStyles.bodySmall.copyWith(
-            color: AppColors.darkestGray,
-            letterSpacing: 0,
-            height: 16 / 12,
+    return GestureDetector(
+      onTap: () => Get.to(() => const ProductDetailScreen()),
+      child: Column(
+        children: [
+          Image.asset(
+            image,
+            width: 165.w,
+            height: 200.h,
+            fit: BoxFit.cover,
           ),
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          '\$$price',
-          style: AppTextStyles.bodyMedium.copyWith(
-            color: AppColors.secondary,
-            letterSpacing: 0,
-            fontSize: 15.sp,
-            height: 24 / 15,
+          SizedBox(height: 4.h),
+          Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: AppTextStyles.bodySmall.copyWith(
+              color: AppColors.darkestGray,
+              letterSpacing: 0,
+              height: 16 / 12,
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-      ],
+          Text(
+            '\$$price',
+            style: AppTextStyles.bodyMedium.copyWith(
+              color: AppColors.secondary,
+              letterSpacing: 0,
+              fontSize: 15.sp,
+              height: 24 / 15,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

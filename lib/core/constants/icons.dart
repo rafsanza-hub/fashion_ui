@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class AppIcons {
   static const cart = 'assets/icons/cart.svg';
   static const search = 'assets/icons/Search.svg';
@@ -16,4 +18,13 @@ class AppIcons {
   static const check = 'assets/icons/Check.svg';
   static const shopping = 'assets/icons/shopping bag.svg';
   static const shipping = 'assets/icons/Shipping.svg';
+  static const info = 'assets/icons/info.svg';
+  static const resize = 'assets/icons/Resize.svg';
+  static const do_not_bleach = 'assets/icons/Do Not Bleach.svg';
+  static const do_not_wash = 'assets/icons/Do Not Wash.svg';
+  static const do_not_tumble_dry = 'assets/icons/Do Not Tumble Dry.svg';
+  static const door_to_door_delivery = 'assets/icons/Door to Door Delivery.svg';
+  static const iron_low = 'assets/icons/Iron Low Temperature.svg';
+  static const tag = 'assets/icons/Tag.svg';
+  static const refresh = 'assets/icons/Refresh.svg';
 }

@@ -17,6 +17,7 @@ class AppColors {
   static const Color darkestGray = Color(0xFF333333);
   static const Color darkGray = Color(0xFF555555);
   static const Color mediumGray = Color(0xFF888888);
+  static const Color lightGrey = Color(0xFFDEDEDE);
   static const Color white = Colors.white;
   
   // Background colors

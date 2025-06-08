@@ -5,9 +5,9 @@ class AppIcons {
   static const search = 'assets/icons/Search.svg';
   static const user = 'assets/icons/user.svg';
   static const home = 'assets/icons/Home.svg';
-  static const heart = 'assets/icons/heart.svg';
+  static const heart = 'assets/icons/Heart.svg';
   static const menu = 'assets/icons/Menu.svg';
-  static const back = 'assets/icons/back.svg';
+  static const back = 'assets/icons/backward.svg';
   static const settings = 'assets/icons/settings.svg';
   static const filter = 'assets/icons/Filter.svg';
   static const up = 'assets/icons/Up.svg';
@@ -27,4 +27,8 @@ class AppIcons {
   static const iron_low = 'assets/icons/Iron Low Temperature.svg';
   static const tag = 'assets/icons/Tag.svg';
   static const refresh = 'assets/icons/Refresh.svg';
+  static const instagram = 'assets/icons/instagram.svg';
+  static const instagram_outline = 'assets/icons/instagram_outline.svg';
+  static const twitter = 'assets/icons/twitter.svg';
+  static const youtube = 'assets/icons/youtube.svg';
 }

@@ -7,7 +7,7 @@ class AppTextStyles {
     fontSize: 18,
     fontFamily: 'Tenor Sans',
     fontWeight: FontWeight.w400,
-    height: 2.22,
+    height: 40 / 18,
     letterSpacing: 4,
   );
 

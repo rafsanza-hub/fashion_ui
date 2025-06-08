@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
 import 'package:fashion_ui/screen/product_detail_screen.dart';
+import 'package:fashion_ui/widget/custom_appbar.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,31 +17,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-                color: const Color(0xFFE7EAEF),
-                height: MediaQuery.of(context).padding.top),
-            // Header Section
-            _buildHeader(context),
+            // Container(
+            //     color: const Color(0xFFE7EAEF),
+            //     height: MediaQuery.of(context).padding.top),
+            // // Header Section
+            // _buildHeader(context),
             // Hero Section
             _buildHeroSection(context),
+            SizedBox(height: 27.r),
             // New Arrival Section
             _buildNewArrivalSection(context),
+            SizedBox(height: 60.h),
+
+            // Brands Section
+            _buildBrandsSection(),
+            SizedBox(height: 59.24.r),
+
             // Collections Section
             _buildCollectionsSection(context),
+            SizedBox(height: 40.r),
+
             // Banner Section
             _buildBannerSection(context),
+            SizedBox(height: 72.r),
+
             // Just For You Section
             _buildJustForYouSection(context),
+            SizedBox(height: 64.r),
+
             // Trending Section
             _buildTrendingSection(context),
+            SizedBox(height: 36.r),
+
             // About Section
             _buildAboutSection(context),
+
+            SizedBox(height: 32.97.h),
+
             // Follow Us Section
             _buildFollowUsSection(context),
+            SizedBox(height: 41.78.h),
+
             // Footer Section
             _buildFooterSection(context),
           ],
@@ -47,31 +71,69 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
-    return Container(
-      height: 60.h,
-      color: const Color(0xFFE7EAEF),
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgIcon(AppIcons.menu, size: 24.sp),
-          SvgPicture.asset(
-            'assets/svg/header.svg',
-            width: 78.w,
-            height: 32.h,
-          ),
-          Row(
-            children: [
-              SvgIcon(AppIcons.search, size: 24.sp),
-              SizedBox(width: 16.w),
-              SvgIcon(AppIcons.shopping, size: 24.sp),
-            ],
-          ),
-        ],
-      ),
+  Column _buildBrandsSection() {
+    return Column(
+      children: [
+        const SlantedBoxDivider(),
+        SizedBox(height: 34.44.h),
+        Row(
+          children: [
+            Expanded(
+              child: SvgPicture.asset('assets/svg/Prada.svg'),
+            ),
+            Expanded(
+              child: SvgPicture.asset('assets/svg/Burberry.svg'),
+            ),
+            Expanded(
+              child: SvgPicture.asset('assets/svg/Boss.svg'),
+            ),
+          ],
+        ),
+        SizedBox(height: 22.58.h),
+        Row(
+          children: [
+            Expanded(
+              child: SvgPicture.asset('assets/svg/Catier.svg'),
+            ),
+            Expanded(
+              child: SvgPicture.asset('assets/svg/Gucci.svg'),
+            ),
+            Expanded(
+              child: SvgPicture.asset('assets/svg/Tiffany & Co.svg'),
+            ),
+          ],
+        ),
+        SizedBox(height: 41.5.h),
+        const SlantedBoxDivider(),
+      ],
     );
   }
+
+  // Widget _buildHeader(BuildContext context) {
+  //   return Container(
+  //     height: 60.h,
+  //     color: const Color(0xFFE7EAEF),
+  //     padding: EdgeInsets.symmetric(horizontal: 16.w),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         SvgIcon(AppIcons.menu, size: 24.sp),
+  //         SvgPicture.asset(
+  //           'assets/svg/header.svg',
+  //           width: 78.w,
+  //           height: 32.h,
+  //         ),
+  //         Row(
+  //           children: [
+  //             SvgIcon(AppIcons.search, size: 24.sp),
+  //             SizedBox(width: 16.w),
+  //             SvgIcon(AppIcons.shopping, size: 24.sp),
+  //           ],
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildHeroSection(BuildContext context) {
     return Stack(
@@ -190,11 +252,12 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildNewArrivalSection(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.r),
       child: Column(
         children: [
           const Text('NEW ARRIVAL', style: AppTextStyles.titleUppercaseLarge),
-          SizedBox(height: 16.h),
+          const SlantedBoxDivider(),
+          SizedBox(height: 13.75.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 26.w,
@@ -228,13 +291,14 @@ class HomeScreen extends StatelessWidget {
               const Spacer(),
             ],
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 13.h),
           GridView.count(
+            padding: EdgeInsets.zero,
             crossAxisCount: 2,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             childAspectRatio: 165.w / 260.16.h,
-            mainAxisSpacing: 11.h,
+            mainAxisSpacing: 11.84.h,
             crossAxisSpacing: 13.w,
             children: [
               _buildProductCard(context, '21WN reversible angora ', 120,
@@ -247,7 +311,7 @@ class HomeScreen extends StatelessWidget {
                   context, 'Oblong bag', 120, 'assets/images/product4.jpg'),
             ],
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 27.84.h),
           TextButton.icon(
             onPressed: () {},
             icon: Icon(Icons.arrow_forward,
@@ -261,7 +325,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildCollectionsSection(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.r),
       child: Column(
         children: [
           const Text('COLLECTIONS', style: AppTextStyles.titleUppercaseLarge),
@@ -325,7 +389,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 40.h),
           Stack(
             children: [
               Image.asset(
@@ -376,43 +440,52 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildBannerSection(BuildContext context) {
-    return Stack(
-      children: [
-        Image.network(
-          'https://picsum.photos/375/176',
-          height: 176.h,
-          width: double.infinity,
-          fit: BoxFit.fill,
-        ),
-        Positioned.fill(
-          child: Container(
-            color: AppColors.black.withValues(alpha: 0.1),
+    return SizedBox(
+      height: 176.h,
+      width: double.infinity,
+      child: Stack(
+        children: [
+          Image.asset(
+            'assets/images/banner.png',
+            height: 176.h,
+            width: double.infinity,
+            fit: BoxFit.fill,
           ),
-        ),
-        Positioned(
-          right: 16.w,
-          top: 75.h,
-          child: Container(
-            width: 33.27.w,
-            height: 33.27.h,
-            decoration: const ShapeDecoration(
-              color: Colors.black,
-              shape: OvalBorder(),
+          Positioned.fill(
+            child: Container(
+              color: AppColors.black.withValues(alpha: 0.1),
             ),
           ),
-        ),
-      ],
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+                width: 33.27.w,
+                height: 33.27.h,
+                decoration: ShapeDecoration(
+                  color: Colors.black.withValues(alpha: 0.5),
+                  shape: const OvalBorder(),
+                ),
+                child: Icon(
+                  Icons.play_arrow_rounded,
+                  color: AppColors.white,
+                  size: 20.sp,
+                )),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildJustForYouSection(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.r),
       child: Column(
         children: [
           const Text('JUST FOR YOU', style: AppTextStyles.titleUppercaseLarge),
-          SizedBox(height: 16.h),
+          const SlantedBoxDivider(),
+          SizedBox(height: 23.06.h),
           SingleChildScrollView(
+            padding: EdgeInsets.zero,
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
@@ -440,11 +513,11 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildTrendingSection(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
           const Text('@TRENDING', style: AppTextStyles.titleUppercaseLarge),
-          SizedBox(height: 16.h),
+          SizedBox(height: 8.h),
           Wrap(
             spacing: 8.w,
             runSpacing: 8.h,
@@ -465,38 +538,61 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildAboutSection(BuildContext context) {
     return Container(
-      color: AppColors.inputBackground.withValues(alpha: 0.5),
-      padding: EdgeInsets.all(16.r),
+      color: const Color(0xFFF2F2F2).withValues(alpha: 0.5),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 28.h),
       child: Column(
         children: [
-          Text(
-            'Making a luxurious lifestyle accessible for a generous group of women is our daily drive.',
-            style: AppTextStyles.bodyMedium.copyWith(
-              color: AppColors.darkGray,
-              letterSpacing: 0.14,
-            ),
-            textAlign: TextAlign.center,
+          SvgPicture.asset(
+            'assets/svg/header.svg',
+            width: 78.w,
+            height: 32.h,
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 16.17.h),
+          SizedBox(
+            width: 285.04.w,
+            child: Text(
+              'Making a luxurious lifestyle accessible for a generous group of women is our daily drive.',
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: AppColors.darkGray,
+                letterSpacing: 0.14,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          SizedBox(height: 4.94.h),
+          const SlantedBoxDivider(),
+          SizedBox(height: 13.6.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildFeatureCard(
-                  context, 'Fast shipping. Free on orders over \$25.', '50/35'),
-              _buildFeatureCard(context,
-                  'Sustainable process \nfrom start to finish.', '52/37'),
+                  context,
+                  'Fast shipping. Free on orders over \$25.',
+                  'assets/images/sticker1.png'),
+              _buildFeatureCard(
+                  context,
+                  'Sustainable process \nfrom start to finish.',
+                  'assets/images/sticker2.png'),
             ],
           ),
           SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildFeatureCard(context,
-                  'Unique designs \nand high-quality materials.', '54/38'),
-              _buildFeatureCard(context,
-                  'Fast shipping. \nFree on orders over \$25.', '54/38'),
+              _buildFeatureCard(
+                  context,
+                  'Unique designs \nand high-quality materials.',
+                  'assets/images/sticker3.png'),
+              _buildFeatureCard(
+                  context,
+                  'Fast shipping. \nFree on orders over \$25.',
+                  'assets/images/sticker4.png'),
             ],
           ),
+          SizedBox(height: 33.17.h),
+
+          // Divider
+          SvgPicture.asset('assets/svg/divider.svg'),
         ],
       ),
     );
@@ -504,12 +600,15 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildFollowUsSection(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
           const Text('FOLLOW US', style: AppTextStyles.titleUppercaseLarge),
-          SizedBox(height: 16.h),
+          SizedBox(height: 2.03.h),
+          SvgIcon(AppIcons.instagram, size: 24.sp),
+          SizedBox(height: 18.h),
           GridView.count(
+            padding: EdgeInsets.zero,
             crossAxisCount: 2,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -517,10 +616,10 @@ class HomeScreen extends StatelessWidget {
             mainAxisSpacing: 16.h,
             crossAxisSpacing: 14.w,
             children: [
-              _buildSocialCard(context, '@mia', '164/164'),
-              _buildSocialCard(context, '@_jihyn', '164/164'),
-              _buildSocialCard(context, '@mia', '164/164'),
-              _buildSocialCard(context, '@_jihyn', '164/164'),
+              _buildSocialCard(context, '@mia', 'assets/images/owner1.jpg'),
+              _buildSocialCard(context, '@_jihyn', 'assets/images/owner2.jpg'),
+              _buildSocialCard(context, '@mia', 'assets/images/owner3.jpg'),
+              _buildSocialCard(context, '@_jihyn', 'assets/images/owner4.jpg'),
             ],
           ),
         ],
@@ -529,48 +628,61 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildFooterSection(BuildContext context) {
-    return Container(
-      color: AppColors.white,
-      padding: EdgeInsets.all(16.r),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
+      children: [
+        Container(
+          color: AppColors.white,
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
             children: [
-              Icon(Icons.facebook, size: 24.sp),
-              Icon(Icons.facebook, size: 24.sp),
-              Icon(Icons.facebook, size: 24.sp),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SvgIcon(AppIcons.twitter, size: 24.sp),
+                  SvgIcon(AppIcons.instagram, size: 24.sp),
+                  SvgIcon(AppIcons.youtube, size: 24.sp),
+                ],
+              ),
+              SizedBox(height: 24.h),
+              const SlantedBoxDivider(),
+              SizedBox(height: 18.73.h),
+              Text(
+                'support@openui.design\n+60 fg825 876\n08:00 - 22:00 - Everyday',
+                style: AppTextStyles.bodyLarge
+                    .copyWith(color: AppColors.darkestGray),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 19.76.h),
+              const SlantedBoxDivider(),
+              SizedBox(height: 32.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('About',
+                      style: AppTextStyles.bodyLarge
+                          .copyWith(color: Colors.black)),
+                  Text('Contact',
+                      style: AppTextStyles.bodyLarge
+                          .copyWith(color: Colors.black)),
+                  Text('Blog',
+                      style: AppTextStyles.bodyLarge
+                          .copyWith(color: Colors.black)),
+                ],
+              ),
             ],
           ),
-          SizedBox(height: 24.h),
-          Text(
-            'support@openui.design\n+60 fg825 876\n08:00 - 22:00 - Everyday',
-            style:
-                AppTextStyles.bodyLarge.copyWith(color: AppColors.darkestGray),
-            textAlign: TextAlign.center,
+        ),
+        SizedBox(height: 22.97.h),
+        Container(
+          height: 45.h,
+          color: const Color(0xFFC4C4C4).withValues(alpha: 0.1),
+          alignment: Alignment.center,
+          child: Text(
+            'Copyright© OpenUI All Rights Reserved.',
+            style: AppTextStyles.bodySmall.copyWith(color: AppColors.darkGray),
           ),
-          SizedBox(height: 24.h),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('About', style: AppTextStyles.bodyLarge),
-              Text('Contact', style: AppTextStyles.bodyLarge),
-              Text('Blog', style: AppTextStyles.bodyLarge),
-            ],
-          ),
-          SizedBox(height: 24.h),
-          Container(
-            height: 45.h,
-            color: AppColors.mediumGray.withValues(alpha: 0.1),
-            alignment: Alignment.center,
-            child: Text(
-              'Copyright© OpenUI All Rights Reserved.',
-              style:
-                  AppTextStyles.bodySmall.copyWith(color: AppColors.darkGray),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -587,16 +699,20 @@ class HomeScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           SizedBox(height: 4.h),
-          Text(
-            title,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            style: AppTextStyles.bodySmall.copyWith(
-              color: AppColors.darkestGray,
-              letterSpacing: 0,
-              height: 16 / 12,
+          SizedBox(
+            width: 165.w,
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: AppTextStyles.bodySmall.copyWith(
+                color: AppColors.darkestGray,
+                fontSize: 12.sp,
+                letterSpacing: 0,
+                height: 16 / 12,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
           Text(
             '\$$price',
@@ -627,58 +743,137 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFeatureCard(
-      BuildContext context, String text, String imageSize) {
-    final dimensions = imageSize.split('/');
+  Widget _buildFeatureCard(BuildContext context, String text, String image) {
     return Column(
       children: [
-        Image.network(
-          'https://picsum.photos/$imageSize',
-          width: double.parse(dimensions[0]).w,
-          height: double.parse(dimensions[1]).h,
+        Image.asset(
+          image,
+          height: 54.45.h,
           fit: BoxFit.contain,
         ),
         SizedBox(height: 8.h),
-        Text(
-          text,
-          style: AppTextStyles.bodySmall.copyWith(color: AppColors.darkGray),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSocialCard(
-      BuildContext context, String username, String imageSize) {
-    final dimensions = imageSize.split('/');
-    return Column(
-      children: [
-        Image.network(
-          'https://picsum.photos/$imageSize',
-          width: double.parse(dimensions[0]).w,
-          height: double.parse(dimensions[1]).h,
-          fit: BoxFit.fill,
-        ),
-        Container(
-          width: double.parse(dimensions[0]).w,
-          padding: EdgeInsets.symmetric(horizontal: 9.w, vertical: 12.h),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: const Alignment(0.38, 1.00),
-              end: const Alignment(0.38, -0.00),
-              colors: [AppColors.black, AppColors.black.withValues(alpha: 0)],
-            ),
-          ),
+        SizedBox(
+          width: 150.w,
           child: Text(
-            username,
-            style: AppTextStyles.bodySmall.copyWith(
-              color: AppColors.white,
-              letterSpacing: 1,
-            ),
+            text,
+            style: AppTextStyles.bodySmall.copyWith(color: AppColors.darkGray),
             textAlign: TextAlign.center,
           ),
         ),
       ],
     );
   }
+
+  Widget _buildSocialCard(BuildContext context, String username, String image) {
+    return Stack(
+      children: [
+        Image.asset(
+          image,
+          width: 164.w,
+          height: 164.h,
+          fit: BoxFit.fill,
+        ),
+        Positioned(
+          bottom: 0,
+          child: Container(
+            height: 39.h,
+            width: 164.w,
+            padding: EdgeInsets.symmetric(horizontal: 9.w, vertical: 12.h),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                colors: [AppColors.black, AppColors.black.withValues(alpha: 0)],
+              ),
+            ),
+            child: Text(
+              username,
+              style: AppTextStyles.bodySmall.copyWith(
+                color: AppColors.white,
+                letterSpacing: 1,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SlantedBoxDivider extends StatelessWidget {
+  const SlantedBoxDivider({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 124.96.w,
+      child: Row(children: [
+        Expanded(
+          child: Divider(
+            thickness: 0.3.r,
+            color: AppColors.darkGray,
+          ),
+        ),
+        Transform.rotate(
+          angle: pi / 4,
+          child: Container(
+            height: 9.25.h,
+            width: 9.25.h,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              border: Border.all(
+                color: AppColors.darkGray,
+                strokeAlign: BorderSide.strokeAlignInside,
+                width: 0.3.r,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Divider(
+            thickness: 0.3.r,
+            color: AppColors.darkGray,
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+class CustomHeaderAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const CustomHeaderAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: preferredSize.height,
+      color: const Color(0xFFE7EAEF),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SvgIcon(AppIcons.menu, size: 24.sp),
+          SvgPicture.asset(
+            'assets/svg/header.svg',
+            width: 78.w,
+            height: 32.h,
+          ),
+          Row(
+            children: [
+              SvgIcon(AppIcons.search, size: 24.sp),
+              SizedBox(width: 16.w),
+              SvgIcon(AppIcons.shopping, size: 24.sp),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(60.h);
 }

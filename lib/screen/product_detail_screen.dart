@@ -312,7 +312,7 @@ class ProductDetailScreen extends StatelessWidget {
       padding: EdgeInsets.all(16.r),
       child: Column(
         children: [
-          const Text(
+          Text(
             'YOU MAY ALSO LIKE',
             style: AppTextStyles.titleUppercaseLarge,
           ),
@@ -371,7 +371,7 @@ class ProductDetailScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 24.h),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text('About', style: AppTextStyles.bodyLarge),

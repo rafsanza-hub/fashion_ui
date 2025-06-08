@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
-import 'package:fashion_ui/screen/product_detail_screen.dart';
+import 'package:fashion_ui/screen/category_screen.dart';
+import 'package:fashion_ui/widget/app_footer.dart';
 import 'package:fashion_ui/widget/custom_appbar.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 41.78.h),
 
             // Footer Section
-            _buildFooterSection(context),
+            const AppFooter(),
           ],
         ),
       ),
@@ -255,7 +256,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.r),
       child: Column(
         children: [
-          const Text('NEW ARRIVAL', style: AppTextStyles.titleUppercaseLarge),
+          Text('NEW ARRIVAL', style: AppTextStyles.titleUppercaseLarge),
           const SlantedBoxDivider(),
           SizedBox(height: 13.75.h),
           Row(
@@ -316,7 +317,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {},
             icon: Icon(Icons.arrow_forward,
                 color: AppColors.titleActive, size: 16.sp),
-            label: const Text('Explore More', style: AppTextStyles.bodyLarge),
+            label: Text('Explore More', style: AppTextStyles.bodyLarge),
           ),
         ],
       ),
@@ -328,7 +329,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.r),
       child: Column(
         children: [
-          const Text('COLLECTIONS', style: AppTextStyles.titleUppercaseLarge),
+          Text('COLLECTIONS', style: AppTextStyles.titleUppercaseLarge),
           SizedBox(height: 16.h),
           Stack(
             children: [
@@ -481,7 +482,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.r),
       child: Column(
         children: [
-          const Text('JUST FOR YOU', style: AppTextStyles.titleUppercaseLarge),
+          Text('JUST FOR YOU', style: AppTextStyles.titleUppercaseLarge),
           const SlantedBoxDivider(),
           SizedBox(height: 23.06.h),
           SingleChildScrollView(
@@ -516,7 +517,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
-          const Text('@TRENDING', style: AppTextStyles.titleUppercaseLarge),
+          Text('@TRENDING', style: AppTextStyles.titleUppercaseLarge),
           SizedBox(height: 8.h),
           Wrap(
             spacing: 8.w,
@@ -603,7 +604,7 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
-          const Text('FOLLOW US', style: AppTextStyles.titleUppercaseLarge),
+          Text('FOLLOW US', style: AppTextStyles.titleUppercaseLarge),
           SizedBox(height: 2.03.h),
           SvgIcon(AppIcons.instagram, size: 24.sp),
           SizedBox(height: 18.h),
@@ -627,69 +628,10 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFooterSection(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          color: AppColors.white,
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SvgIcon(AppIcons.twitter, size: 24.sp),
-                  SvgIcon(AppIcons.instagram, size: 24.sp),
-                  SvgIcon(AppIcons.youtube, size: 24.sp),
-                ],
-              ),
-              SizedBox(height: 24.h),
-              const SlantedBoxDivider(),
-              SizedBox(height: 18.73.h),
-              Text(
-                'support@openui.design\n+60 fg825 876\n08:00 - 22:00 - Everyday',
-                style: AppTextStyles.bodyLarge
-                    .copyWith(color: AppColors.darkestGray),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 19.76.h),
-              const SlantedBoxDivider(),
-              SizedBox(height: 32.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text('About',
-                      style: AppTextStyles.bodyLarge
-                          .copyWith(color: Colors.black)),
-                  Text('Contact',
-                      style: AppTextStyles.bodyLarge
-                          .copyWith(color: Colors.black)),
-                  Text('Blog',
-                      style: AppTextStyles.bodyLarge
-                          .copyWith(color: Colors.black)),
-                ],
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 22.97.h),
-        Container(
-          height: 45.h,
-          color: const Color(0xFFC4C4C4).withValues(alpha: 0.1),
-          alignment: Alignment.center,
-          child: Text(
-            'Copyright© OpenUI All Rights Reserved.',
-            style: AppTextStyles.bodySmall.copyWith(color: AppColors.darkGray),
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildProductCard(
       BuildContext context, String title, double price, String image) {
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => const CategoryGridView()),
       child: Column(
         children: [
           Image.asset(

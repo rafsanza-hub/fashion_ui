@@ -1,10 +1,11 @@
+import 'package:fashion_ui/widget/app_footer.dart';
+import 'package:fashion_ui/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryGridView extends StatelessWidget {
   const CategoryGridView({super.key});
@@ -12,59 +13,32 @@ class CategoryGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              color: AppColors.white,
-              height: MediaQuery.of(context).padding.top,
-            ),
-            // Header Section
-            _buildHeader(context),
+            SizedBox(height: 18.9.h),
             // Filter Section
             _buildFilterSection(context),
+            SizedBox(height: 25.h),
             // Products Grid Section
             _buildProductsGridSection(context),
             // Pagination Section
             _buildPaginationSection(context),
+            SizedBox(height: 102.9.h),
+
             // Footer Section
-            _buildFooterSection(context),
+            const AppFooter(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
-    return Container(
-      height: 60.h,
-      color: AppColors.white,
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgIcon(AppIcons.back, size: 24.sp),
-          SvgPicture.asset(
-            'assets/svg/header.svg',
-            width: 78.w,
-            height: 32.h,
-          ),
-          Row(
-            children: [
-              SvgIcon(AppIcons.search, size: 24.sp),
-              SizedBox(width: 16.w),
-              SvgIcon(AppIcons.filter, size: 24.sp),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildFilterSection(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.r),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -89,10 +63,12 @@ class CategoryGridView extends StatelessWidget {
                   ),
                   SizedBox(width: 16.w),
                   SvgIcon(AppIcons.shipping,
-                      size: 20.sp, color: AppColors.darkGray.withOpacity(0.5)),
+                      size: 20.sp,
+                      color: AppColors.darkGray.withValues(alpha: 0.5)),
                   SizedBox(width: 16.w),
                   SvgIcon(AppIcons.shipping,
-                      size: 20.sp, color: AppColors.darkGray.withOpacity(0.5)),
+                      size: 20.sp,
+                      color: AppColors.darkGray.withValues(alpha: 0.5)),
                 ],
               ),
             ],
@@ -114,6 +90,7 @@ class CategoryGridView extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: GridView.count(
+        padding: EdgeInsets.zero,
         crossAxisCount: 2,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -163,7 +140,7 @@ class CategoryGridView extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isSelected
                       ? AppColors.darkestGray
-                      : AppColors.lightGrey.withOpacity(0.1),
+                      : AppColors.lightGrey.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(4.r),
                 ),
                 child: Center(
@@ -182,58 +159,10 @@ class CategoryGridView extends StatelessWidget {
           ..add(
             Padding(
               padding: EdgeInsets.only(left: 12.w),
-              child:
-                  SvgIcon(AppIcons.up, size: 24.sp, color: AppColors.darkGray),
+              child: SvgIcon(AppIcons.back,
+                  size: 24.sp, color: AppColors.darkGray),
             ),
           ),
-      ),
-    );
-  }
-
-  Widget _buildFooterSection(BuildContext context) {
-    return Container(
-      color: AppColors.white,
-      padding: EdgeInsets.all(16.r),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.facebook, size: 24.sp),
-              Icon(Icons.facebook, size: 24.sp),
-              Icon(Icons.facebook, size: 24.sp),
-            ],
-          ),
-          SizedBox(height: 24.h),
-          Text(
-            'support@openui.design\n+60 825 876\n08:00 - 22:00 - Everyday',
-            style: AppTextStyles.bodyLarge.copyWith(
-              color: AppColors.darkestGray,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 24.h),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('About', style: AppTextStyles.bodyLarge),
-              Text('Contact', style: AppTextStyles.bodyLarge),
-              Text('Blog', style: AppTextStyles.bodyLarge),
-            ],
-          ),
-          SizedBox(height: 24.h),
-          Container(
-            height: 45.h,
-            color: AppColors.lightGrey.withOpacity(0.1),
-            alignment: Alignment.center,
-            child: Text(
-              'Copyright© OpenUI All Rights Reserved.',
-              style: AppTextStyles.bodySmall.copyWith(
-                color: AppColors.darkGray,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
@@ -255,7 +184,7 @@ class CategoryGridView extends StatelessWidget {
               right: 8.w,
               bottom: 8.h,
               child: SvgIcon(AppIcons.heart,
-                  size: 16.sp, color: AppColors.darkGray),
+                  size: 16.sp, color: AppColors.secondary),
             ),
           ],
         ),
@@ -288,26 +217,39 @@ class CategoryGridView extends StatelessWidget {
   }
 
   Widget _buildFilterChip(BuildContext context, String label) {
-    return ActionChip(
-      label: Text(
-        label,
-        style: AppTextStyles.bodySmall.copyWith(
-          color: AppColors.darkestGray,
-          fontSize: 14.sp,
-          letterSpacing: 0.14.w,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(
+            width: 1,
+            strokeAlign: BorderSide.strokeAlignOutside,
+            color: Color(0xFFDEDEDE),
+          ),
+          borderRadius: BorderRadius.circular(30),
         ),
       ),
-      avatar: SvgIcon(AppIcons.close, size: 16.sp, color: AppColors.primary),
-      backgroundColor: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.r),
-        side: BorderSide(
-          color: AppColors.lightGrey,
-          width: 1.w,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 6,
+        children: [
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color(0xFF333333),
+              fontSize: 14.sp,
+              fontFamily: 'Tenor Sans',
+              fontWeight: FontWeight.w400,
+              height: 1.14,
+              letterSpacing: 0.14,
+            ),
+          ),
+          const SizedBox(width: 16, height: 16, child: SvgIcon(AppIcons.close)),
+        ],
       ),
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-      onPressed: () {},
     );
   }
 }

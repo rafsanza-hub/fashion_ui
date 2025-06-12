@@ -1,11 +1,11 @@
-import 'dart:math';
-
 import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
 import 'package:fashion_ui/screen/category_screen.dart';
+import 'package:fashion_ui/screen/product_detail_screen.dart';
 import 'package:fashion_ui/widget/app_footer.dart';
 import 'package:fashion_ui/widget/custom_appbar.dart';
+import 'package:fashion_ui/widget/slanted_divider.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +18,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        backgroundColor: Color(0xFFE7EAEF),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -314,7 +316,9 @@ class HomeScreen extends StatelessWidget {
           ),
           SizedBox(height: 27.84.h),
           TextButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => const CategoryGridView());
+            },
             icon: Icon(Icons.arrow_forward,
                 color: AppColors.titleActive, size: 16.sp),
             label: Text('Explore More', style: AppTextStyles.bodyLarge),
@@ -631,7 +635,7 @@ class HomeScreen extends StatelessWidget {
   Widget _buildProductCard(
       BuildContext context, String title, double price, String image) {
     return GestureDetector(
-      onTap: () => Get.to(() => const CategoryGridView()),
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Column(
         children: [
           Image.asset(
@@ -739,48 +743,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class SlantedBoxDivider extends StatelessWidget {
-  const SlantedBoxDivider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 124.96.w,
-      child: Row(children: [
-        Expanded(
-          child: Divider(
-            thickness: 0.3.r,
-            color: AppColors.darkGray,
-          ),
-        ),
-        Transform.rotate(
-          angle: pi / 4,
-          child: Container(
-            height: 9.25.h,
-            width: 9.25.h,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              border: Border.all(
-                color: AppColors.darkGray,
-                strokeAlign: BorderSide.strokeAlignInside,
-                width: 0.3.r,
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Divider(
-            thickness: 0.3.r,
-            color: AppColors.darkGray,
-          ),
-        ),
-      ]),
     );
   }
 }

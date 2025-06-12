@@ -2,6 +2,7 @@ import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
 import 'package:fashion_ui/screen/home_screen.dart';
+import 'package:fashion_ui/widget/slanted_divider.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

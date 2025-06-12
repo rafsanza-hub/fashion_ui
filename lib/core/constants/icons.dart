@@ -31,4 +31,8 @@ class AppIcons {
   static const instagram_outline = 'assets/icons/instagram_outline.svg';
   static const twitter = 'assets/icons/twitter.svg';
   static const youtube = 'assets/icons/youtube.svg';
+  static const export = 'assets/icons/Export.svg';
+  static const listView = 'assets/icons/Listview.svg';
+  static const gridView = 'assets/icons/grid view.svg';
+  static const voucher = 'assets/icons/Voucher.svg';
 }

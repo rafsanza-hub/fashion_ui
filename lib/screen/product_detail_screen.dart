@@ -1,6 +1,9 @@
 import 'package:fashion_ui/core/constants/colors.dart';
 import 'package:fashion_ui/core/constants/icons.dart';
 import 'package:fashion_ui/core/constants/text_styles.dart';
+import 'package:fashion_ui/widget/app_footer.dart';
+import 'package:fashion_ui/widget/custom_appbar.dart';
+import 'package:fashion_ui/widget/slanted_divider.dart';
 import 'package:fashion_ui/widget/svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,16 +15,13 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              color: AppColors.white,
-              height: MediaQuery.of(context).padding.top,
-            ),
-            // Header Section
-            _buildHeader(context),
+            SizedBox(height: 20.h),
             // Product Image Section
             _buildProductImageSection(context),
             // Product Info Section
@@ -32,36 +32,11 @@ class ProductDetailScreen extends StatelessWidget {
             _buildProductDetailsSection(context),
             // You May Also Like Section
             _buildYouMayAlsoLikeSection(context),
+            SizedBox(height: 37.h),
             // Footer Section
-            _buildFooterSection(context),
+            const AppFooter(),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    return Container(
-      height: 60.h,
-      color: AppColors.white,
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgIcon(AppIcons.back, size: 24.sp),
-          SvgPicture.asset(
-            'assets/svg/header.svg',
-            width: 78.w,
-            height: 32.h,
-          ),
-          Row(
-            children: [
-              SvgIcon(AppIcons.search, size: 24.sp),
-              SizedBox(width: 16.w),
-              SvgIcon(AppIcons.shopping, size: 24.sp),
-            ],
-          ),
-        ],
       ),
     );
   }
@@ -134,11 +109,17 @@ class ProductDetailScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'MOHAN',
-            style: AppTextStyles.titleUppercaseMedium.copyWith(
-              letterSpacing: 4.w,
-            ),
+          Row(
+            children: [
+              Text(
+                'MOHAN',
+                style: AppTextStyles.titleUppercaseMedium.copyWith(
+                  letterSpacing: 4.w,
+                ),
+              ),
+              const Spacer(),
+              SvgIcon(AppIcons.export, size: 16.sp),
+            ],
           ),
           SizedBox(height: 8.h),
           Text(
@@ -158,8 +139,7 @@ class ProductDetailScreen extends StatelessWidget {
           SizedBox(height: 16.h),
           Row(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
                   Text(
                     'Color',
@@ -167,7 +147,7 @@ class ProductDetailScreen extends StatelessWidget {
                       color: AppColors.darkGray,
                     ),
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(width: 8.29.w),
                   Row(
                     children: [
                       _buildColorOption(AppColors.black, isSelected: true),
@@ -179,9 +159,8 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 48.w),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              SizedBox(width: 035.24.w),
+              Row(
                 children: [
                   Text(
                     'Size',
@@ -189,7 +168,7 @@ class ProductDetailScreen extends StatelessWidget {
                       color: AppColors.darkGray,
                     ),
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(width: 15.h),
                   Row(
                     children: [
                       _buildSizeOption('S', isSelected: true),
@@ -290,7 +269,7 @@ class ProductDetailScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              SvgIcon(AppIcons.shipping, size: 20.sp, color: AppColors.white),
+              SvgIcon(AppIcons.plus, size: 20.sp, color: AppColors.white),
               SizedBox(width: 8.w),
               Text(
                 'ADD TO BASKET',
@@ -316,12 +295,14 @@ class ProductDetailScreen extends StatelessWidget {
             'YOU MAY ALSO LIKE',
             style: AppTextStyles.titleUppercaseLarge,
           ),
-          SizedBox(height: 16.h),
+          const SlantedBoxDivider(),
+          SizedBox(height: 20.h),
           GridView.count(
             crossAxisCount: 2,
             shrinkWrap: true,
+            padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
-            childAspectRatio: 165.w / 260.h,
+            childAspectRatio: 165.w / 285.h,
             mainAxisSpacing: 16.h,
             crossAxisSpacing: 16.w,
             children: [
@@ -348,54 +329,6 @@ class ProductDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFooterSection(BuildContext context) {
-    return Container(
-      color: AppColors.white,
-      padding: EdgeInsets.all(16.r),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.facebook, size: 24.sp),
-              Icon(Icons.facebook, size: 24.sp),
-              Icon(Icons.facebook, size: 24.sp),
-            ],
-          ),
-          SizedBox(height: 24.h),
-          Text(
-            'support@openui.design\n+60 825 876\n08:00 - 22:00 - Everyday',
-            style: AppTextStyles.bodyLarge.copyWith(
-              color: AppColors.darkestGray,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 24.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('About', style: AppTextStyles.bodyLarge),
-              Text('Contact', style: AppTextStyles.bodyLarge),
-              Text('Blog', style: AppTextStyles.bodyLarge),
-            ],
-          ),
-          SizedBox(height: 24.h),
-          Container(
-            height: 45.h,
-            color: AppColors.lightGrey.withValues(alpha: 0.1),
-            alignment: Alignment.center,
-            child: Text(
-              'Copyright© OpenUI All Rights Reserved.',
-              style: AppTextStyles.bodySmall.copyWith(
-                color: AppColors.darkGray,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildProductCard(BuildContext context, String brand, String title,
       double price, String image) {
     return Column(
@@ -406,7 +339,7 @@ class ProductDetailScreen extends StatelessWidget {
             Image.asset(
               image,
               width: 165.w,
-              height: 120.h,
+              height: 220.h,
               fit: BoxFit.cover,
             ),
             Positioned(

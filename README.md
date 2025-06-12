@@ -1,16 +1,18 @@
-# fashion_ui
+# 🛍️ Flutter Fashion E-Commerce UI Kit
 
-A new Flutter project.
+A modern and responsive UI kit for fashion e-commerce applications built with Flutter. This project includes beautifully designed mobile screens for online fashion shopping platforms.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## 📸 Screenshots Preview
+| Home 1 | Home 2 | Home 3 | Home 4 |
+|--------|--------|--------|--------|
+| ![Home1](assets/screenshots/home1.png) | ![Home2](assets/screenshots/home2.png) | ![Home3](assets/screenshots/home3.png) | ![Home4](assets/screenshots/home4.png) |
 
-A few resources to get you started if this is your first Flutter project:
+| Home 5 | Home 6 | Home 7 | Home 8 |
+|--------|--------|--------|--------|
+| ![Home5](assets/screenshots/home5.png) | ![Home6](assets/screenshots/home6.png) | ![Home7](assets/screenshots/home7.png) | ![Home8](assets/screenshots/home8.png) |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+##  🎨 Design Source
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Original Figma Design: [Free eCommerce UI Kit](https://www.figma.com/community/file/1055151140671808467)  
+Designed by: [uistoredesign](https://www.figma.com/@uistoredesign)

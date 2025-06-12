@@ -12,6 +12,14 @@ A modern and responsive UI kit for fashion e-commerce applications built with Fl
 |--------|--------|--------|--------|
 | ![Home5](assets/screenshots/home5.png) | ![Home6](assets/screenshots/home6.png) | ![Home7](assets/screenshots/home7.png) | ![Home8](assets/screenshots/home8.png) |
 
+| Detail Product 1 | Detail Product 2 | Detail Product 3 | Detail Product 4 |
+|--------|--------|--------|--------|
+| ![detail1](assets/screenshots/detail1.png) | ![detail2](assets/screenshots/detail2.png) | ![detail3](assets/screenshots/detail3.png) | ![detail4](assets/screenshots/detail4.png) |
+
+| Category 1 | Category 2 | Category 3 | Category 4 |
+|--------|--------|--------|--------|
+| ![Category1](assets/screenshots/category1.png) | ![Category2](assets/screenshots/category2.png) | ![Category3](assets/screenshots/category3.png) | ![Category4](assets/screenshots/category4.png) |
+
 ##  🎨 Design Source
 
 Original Figma Design: [Free eCommerce UI Kit](https://www.figma.com/community/file/1055151140671808467)  
